@@ -1,0 +1,17 @@
+.container { 
+  padding: 24px; 
+}
+
+.header { 
+  margin-bottom: 24px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  gap: 12px; 
+}
+
+.title { 
+  margin: 0; 
+  flex: 1;
+}
+

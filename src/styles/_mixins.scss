@@ -1,0 +1,14 @@
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin rounded($r) {
+  border-radius: $r;
+}
+
+@mixin focus-ring($color) {
+  outline: 4px auto $color;
+}
+

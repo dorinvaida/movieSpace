@@ -1,0 +1,52 @@
+@use "../../styles/variables" as *;
+
+.page {
+  padding: 24px;
+}
+
+.title { margin-top: 0; }
+
+.layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.poster {
+  width: 220px;
+  height: auto;
+  border-radius: $radius-md;
+}
+
+.content { max-width: 640px; }
+.synopsis { margin: 0 0 12px 0; }
+
+.cta {
+  border-radius: $radius-md;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.back { margin-top: 16px; }
+
+/* Genre-specific themes (example IDs from TMDB) */
+.g_28 { /* Action */
+  font-family: 'Impact', 'Arial Black', system-ui;
+}
+.g_878 { /* Science Fiction */
+  font-family: 'Courier New', Courier, monospace;
+}
+.g_35 { /* Comedy */
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+/* Button variants per genre */
+.cta.g_28 { background: #ff3b3b; color: #fff; }
+.cta.g_878 { background: #222; color: #0ff; border-color: #0ff; }
+.cta.g_35 { background: #ffd54f; color: #111; }
+
+/* Fallback */
+.cta { background: #646cff; color: #fff; }
+
+
