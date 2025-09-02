@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectWishlist, removeFromWishlist } from './wishlistSlice';
 import styles from './WishlistPage.module.scss';
 
-export default function WishlistPage() {
+const WishlistPage = () => {
   const dispatch = useAppDispatch();
   const wishlist = useAppSelector(selectWishlist);
   const byId = useAppSelector((state) => state.movies.byId);
@@ -55,4 +55,6 @@ export default function WishlistPage() {
       )}
     </div>
   );
-}
+};
+
+export default WishlistPage;

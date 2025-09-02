@@ -5,7 +5,7 @@ import { selectMovieById } from './moviesSlice';
 import { addToWishlist, selectIsWishlisted } from '../wishlist/wishlistSlice';
 import styles from './MovieDetails.module.scss';
 
-export default function MovieDetails() {
+const MovieDetails = () => {
   const { id = '' } = useParams();
   const dispatch = useAppDispatch();
   const movie = useAppSelector((state) => selectMovieById(state, id));
@@ -57,6 +57,8 @@ export default function MovieDetails() {
       </div>
     </div>
   );
-}
+};
+
+export default MovieDetails;
 
 

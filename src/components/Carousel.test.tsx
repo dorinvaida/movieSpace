@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Carousel from './Carousel';
+import { Movie } from '../types';
 
 jest.mock('./Carousel.module.scss', () => ({
   section: 'section',
@@ -18,16 +19,22 @@ jest.mock('./Carousel.module.scss', () => ({
   caption: 'caption'
 }));
 
-const mockItems = [
+const mockItems: Movie[] = [
   {
     id: '1',
     title: 'Test Movie 1',
-    posterUrl: 'https://example.com/poster1.jpg'
+    year: 2023,
+    synopsis: 'Test synopsis 1',
+    posterUrl: 'https://example.com/poster1.jpg',
+    genreIds: [1, 2]
   },
   {
     id: '2',
     title: 'Test Movie 2',
-    posterUrl: 'https://example.com/poster2.jpg'
+    year: 2023,
+    synopsis: 'Test synopsis 2',
+    posterUrl: 'https://example.com/poster2.jpg',
+    genreIds: [1, 3]
   }
 ];
 
@@ -68,13 +75,13 @@ describe('Carousel', () => {
     
     fireEvent.click(prevButton);
     expect(Element.prototype.scrollBy).toHaveBeenCalledWith({
-      left: -300,
+      left: -200,
       behavior: 'smooth'
     });
     
     fireEvent.click(nextButton);
     expect(Element.prototype.scrollBy).toHaveBeenCalledWith({
-      left: 300,
+      left: 200,
       behavior: 'smooth'
     });
   });

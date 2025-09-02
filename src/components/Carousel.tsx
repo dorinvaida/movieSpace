@@ -1,19 +1,14 @@
 import { useRef, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { Movie } from '../types';
 import styles from './Carousel.module.scss';
-
-interface CarouselItemData { 
-  id: string; 
-  title: string; 
-  posterUrl?: string;
-}
 
 interface CarouselProps {
   title?: string;
-  items: CarouselItemData[];
+  items: Movie[];
 }
 
-const CarouselItem = ({ item }: { item: CarouselItemData }) => (
+const CarouselItem = ({ item }: { item: Movie }) => (
   <div className={styles.card}>
     <Link to={`/movie/${item.id}`} className={styles.link}>
       {item.posterUrl ? (
@@ -34,7 +29,7 @@ const CarouselItem = ({ item }: { item: CarouselItemData }) => (
   </div>
 );
 
-export default function Carousel({ title, items }: CarouselProps) {
+const Carousel = ({ title, items }: CarouselProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
 
   const scrollByAmount = useCallback((amount: number) => {
@@ -51,7 +46,7 @@ export default function Carousel({ title, items }: CarouselProps) {
       <div className={styles.wrap}>
         <button 
           aria-label="Previous" 
-          onClick={() => scrollByAmount(-300)} 
+          onClick={() => scrollByAmount(-200)} 
           className={`${styles.arrow} ${styles.prev}`}
         >
           <svg className={styles.chevron} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +60,7 @@ export default function Carousel({ title, items }: CarouselProps) {
         </div>
         <button 
           aria-label="Next" 
-          onClick={() => scrollByAmount(300)} 
+          onClick={() => scrollByAmount(200)} 
           className={`${styles.arrow} ${styles.next}`}
         >
           <svg className={styles.chevron} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,6 +70,8 @@ export default function Carousel({ title, items }: CarouselProps) {
       </div>
     </section>
   );
-}
+};
+
+export default Carousel;
 
 

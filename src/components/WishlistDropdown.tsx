@@ -4,7 +4,7 @@ import { useAppSelector } from '../app/hooks';
 import { selectWishlist } from '../features/wishlist/wishlistSlice';
 import styles from './WishlistDropdown.module.scss';
 
-export default function WishlistDropdown() {
+const WishlistDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const wishlist = useAppSelector(selectWishlist);
   const byId = useAppSelector((state) => state.movies.byId);
@@ -66,4 +66,6 @@ export default function WishlistDropdown() {
       )}
     </div>
   );
-}
+};
+
+export default WishlistDropdown;
